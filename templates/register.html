@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    {% if error_statement %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ error_statement }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+
+    <form id="form" action="/register" method="post">
+        <h1>Registration</h1>
+        <div class="input-control">
+            <label for="username">Username</label>
+            <input id="username" name="username" autocomplete="off" autofocus class="form-control mx-auto w-auto" type="text" required>
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="password">Password</label>
+            <input id="password" name="password" autocomplete="off" autofocus class="form-control mx-auto w-auto" type="password" required>
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="password2">Confirm Password</label>
+            <input id="password2" name="confirmation" autocomplete="off" autofocus class="form-control mx-auto w-auto" type="password" required>
+            <div class="error"></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}

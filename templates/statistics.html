@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    STATS
+{% endblock %}
+
+{% block main %}
+<form action="/statistics" method="get">
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th class="text-start">Win/Loss</th>
+              <th class="text-start">Winning Color</th>
+              <th>Red Bet</th>
+              <th>Green Bet</th>
+              <th>Black Bet</th>
+              <th>Wager Total</th>
+              <th>Wager Spoils</th>
+              <th>Net Spoils</th>
+              <th class="text-end">Balance</th>
+              <th class="text-end">Timestamp</th>
+          </tr>
+      </thead>
+      <tbody>
+            {% for each in stats %}
+                <tr>
+                    <td class="text-start"><span style="color:white;">{{each.outcome}}</span></td>
+                    <td class="text-start"><span style="color:white;">{{each.winning_color}}</span></td>
+                    <td><span style="color:white;">{{each.red_bet}}</span></td>
+                    <td><span style="color:white;">{{each.green_bet}}</span></td>
+                    <td><span style="color:white;">{{each.black_bet}}</span></td>
+                    <td><span style="color:white;">{{each.wager_total}}</span></td>
+                    <td><span style="color:white;">{{each.wager_spoils}}</span></td>
+                    <td><span style="color:white;">{{each.net_spoils}}</span></td>
+                    <td class="text-end"><span style="color:white;">{{each.balance}}</span></td>
+                    <td class="text-end"><span style="color:white;">{{each.timestamp}}</span></td>
+                </tr>
+            {% endfor %}
+      </tbody>
+  </table>
+</form>
+{% endblock %}

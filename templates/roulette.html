@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Roulette
+{% endblock %}
+
+{% block main %}
+
+    {% if error_statement %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ error_statement }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+  <div class="header2">
+    <b>
+    <span style="font-size: 80px;">
+      <span style="color:white;">S</span>
+      <span style="color:#ea433b;">T</span>
+      <span style="color:white;">A</span>
+      <span style="color:#ea433b;">R</span>
+    </span>
+    </b>
+    ROULETTE
+  </div>
+
+    <div class="game-container">
+        <img src="/static/board.png" class="board-img" alt="Roulette" width="750">
+        <img src="/static/yellow_circle.png" id="circleImage" class="circle-img" alt="Circle" width="750">
+        <img src="/static/arrow.png" class="arrow-img" alt="Arrow" width="750">
+        <p class="spin-display"id="spin-display"></p>
+        <button class="spin" type="submit" id="spin-button">SPIN</button>
+        <!--ADDED TYPE=SUBMIT BECAUSE MAYBE I NEED THIS TO SUBMIT THE BETS?-->
+    </div>
+
+
+    <div class="stats-container">
+        <div class="text"><b>Round Information:</b></div>
+        <p class="stats"><i>Degrees Spun: <span id="degrees-spun-display" style="color:#f5b82e;">-</span></i></p>
+        <p class="stats"><i>Color: <span id="spin-color" style="color:#f5b82e;">-</span></i></p>
+        <p class="stats"><i>Number: <span id="spin-display2" style="color:#f5b82e;">-</span></i></p>
+        <p class="stats"><i>Total Wager: <span id="wager-total" style="color:#f5b82e;">-</span></i></p>
+        <p class="stats"><i>Wager Spoils: <span id="wager-spoils" style="color:#f5b82e;">-</span></i></p>
+        <p class="stats"><i>Net Spoils: <span id="net-spoils" style="color:#f5b82e;">-</span></i></p>
+        <p hidden class="stats">Clicked Spin: <span id="is-clicked">-</span></p>
+    </div>
+
+    <div class="bet-container">
+        <div class="text"><b>Place Your Bets</b></div>
+        <div class="display-container">
+            <div class="bet red-display">RED (PAYOUT 2:1)</div>
+            <input id="redBet" name="redredbet" autocomplete="off" autofocus="off" class="form-control" type="number" min="0" value="0" required>
+            <div class="popup-container" id="red-popup">
+                <p class="popup-text">Bet Placed</p>
+            </div>
+        </div>
+
+        <div class="display-container">
+            <div class="bet green-display">GREEN (PAYOUT 35:1)</div>
+            <input id="greenBet" name="greengreenbet" autocomplete="off" autofocus="off" class="form-control" type="number" min="0" value="0" required>
+            <div class="popup-container" id="green-popup">
+                <p class="popup-text">Bet Placed</p>
+            </div>
+        </div>
+
+        <div class="display-container">
+            <div class="bet black-display">BLACK (PAYOUT 2:1)</div>
+            <input id="blackBet" name="blackblackbet" autocomplete="off" autofocus="off" class="form-control" type="number" min="0" value="0" required>
+            <div class="popup-container" id="black-popup">
+                <p class="popup-text">Bet Placed</p>
+            </div>
+        </div>
+    </div>
+
+
+    <pre class="stats note">
+        <b>Note:</b> Enter the amount you wish to wager
+        and press <i>SPIN</i> to play.
+    </pre>
+
+    <pre class="stats balancenote">"What is life if not a gamble?" <i>- F.E. Higgins</i></pre>
+
+    <div class="balance-container">
+        <div class="balance-display">
+            <div class="balance-label"><b>Account Balance:</b></div>
+            <div class="balance-amount"><span id="cash-display">{{ cash }}</span> credits</div>
+        </div>
+    </div>
+
+
+{% endblock %}
