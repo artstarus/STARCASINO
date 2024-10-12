@@ -4,7 +4,7 @@
 
 This was my final project for Harvard's CS50 course. This was completed in the Summer of 2023 and included a very large commit history of over 1,000 commits showcasing my learning process. This work was done within the cs50 codespace. I have now migrated this project to my own personal public repository. Although private, commits were done in 2023 and can be seen on my 2023 GitHub commit graph. 
 
-At the time of creation, this was one of my first big project that I created from scratch. A video demo is linked below!
+At the time of creation, this was one of my first big projects that I created from scratch. A video demo is linked above!
 
 ![CS50 CERTIFICATE](/CS50x.png)
 
